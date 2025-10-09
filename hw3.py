@@ -100,7 +100,7 @@ def wilkinson_bisect(p_func):
         print("\n50 iterations hit")
 
     print("Bisection method root: ", a)
-    return b
+    return a
 
 # Wilkinson polynomial 
 def wilk_poly(x):
@@ -137,7 +137,7 @@ if __name__ == "__main__":
     expd_form_root = wilkinson_bisect(p_exp)
 
     # prints backwards error using the expanded formula and the bisection algorithm to find a root
-    print("For loop implementation, p_exp implementation: ", wilk_poly(expd_form_root), p_exp(expd_form_root))
+    print("For loop implementation, p_exp implementation: ", np.abs(wilk_poly(expd_form_root)), np.abs(p_exp(expd_form_root)))
 
     # calculate wilkinson polynomial root using root function
     loop_form_root = wilkinson_bisect(wilk_poly)
