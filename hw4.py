@@ -135,6 +135,7 @@ def test_spring_matrix_construction():
     print("Spring matrix construction test passed.")
 
 def q8_2(F: list[float], spr_consts: list[float], lengths: list[float]):
+    '''construct vector B'''
     # ensure lengths are correct
     len_F = len(F)
     len_spr = len(spr_consts)
@@ -180,7 +181,7 @@ def test_vector_b_construction():
 def q8_3(A:list[list[float]]):
     # assume A is stored dense
 
-    # compute infinity norm of A, ends up being max row sum
+    # compute infinity norm of A, ends up being max row sum of abs vals
     rows = []
     for row in A:
         rows.append(np.sum(np.abs(row)))
@@ -190,7 +191,7 @@ def q8_3(A:list[list[float]]):
 def q8_4():
     '''plot log condition number vs spring constant k4 = k12'''
     n = 16
-    rs = [1/16.0 for _ in range(n)]
+    rs = [1/16.0 for _ in range(n)] # not sure if we need these if we're only constructing the A matrix?
     ks = [1.0 for _ in range(n)]
 
     condition_numbers = []
@@ -276,6 +277,17 @@ def test_q9():
     vector = [4]
     result = q9(NC, V, R, C, vector)
     assert np.array_equal(result, np.array([28])), f"Result incorrect: {result}, should be [28]"
+
+    #matrix [[0, 0, 0],
+    #        [0, 5, 0],
+    # expect [0, 15, 0]
+    NC = 3
+    V = [5]
+    R = [0, 0, 1, 1]
+    C = [1]
+    vector = [1, 3, 4]
+    result = q9(NC, V, R, C, vector)
+    assert np.array_equal(result, np.array([0, 15, 0])), f"Result incorrect: {result}, should be [0, 15, 0]"
 
     print("Sparse matrix-vector multiplication test passed.")
     
