@@ -89,8 +89,6 @@ def q8_1_csr(spring_consts: list[float]):
 
     Rows.append(len(Vals))
 
-    # print("Cols: "  , Cols, n)
-
     return Rows, Cols, Vals, NC
 
 def test_spring_matrix_construction():
