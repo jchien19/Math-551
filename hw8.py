@@ -71,7 +71,7 @@ def main():
         return x_next, False
     
     # different implementation, with gradient provided
-    def bt_line_search(f, grad_f, x0, p_k, alpha, rho, c=1e-4 , N_b = 128):
+    def bt_line_search(f, grad_f, x0, p_k, alpha, rho, c=10e-4 , N_b = 128):
         '''
         Backtracking line search algorithm to find step size alpha_k
         Args:
